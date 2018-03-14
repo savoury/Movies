@@ -1,11 +1,17 @@
 <div class="album py-5 bg-light">
   <div class="container">
     <div class="row">
+        <div class="col-sm-12">
+        <form class="form-inline">
+            <label class="sr-only">Name</label>
+            <input type="text" class="form-control mb-2 mr-sm-2" [(ngModel)]="listFilter" name='value' placeholder="Filter"/>
+          </form>
+        </div>
       <div class="col-sm-12">
 
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
+            <h5 class="card-title">{{listFilter}}</h5>
             <div class="col-md-4" *ngFor='let movie of movies'>
               <div class="card mb-4 box-shadow">
                 <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]"

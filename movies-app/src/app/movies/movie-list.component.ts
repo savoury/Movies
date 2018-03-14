@@ -6,6 +6,7 @@ import { Component } from "@angular/core";
 })
 export class MovieListComponent{
     pageTitle: string = 'Upcoming';
+    listFilter: string = 'list';
     movies: any[] = [
         {
             "releaseDate": "March 19, 2016",
