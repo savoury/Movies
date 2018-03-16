@@ -11,7 +11,7 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">{{listFilter}}</h5>
-            <div class="col-md-4" *ngFor='let movie of movies'>
+            <div class="col-md-4" *ngFor='let movie of filteredMovies'>
               <div class="card mb-4 box-shadow">
                 <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]"
                   style="height: 225px; width: 100%; display: block;" [src]='movie.poster_path'
