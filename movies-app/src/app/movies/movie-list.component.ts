@@ -1,26 +1,45 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
+import { IMovie } from './movie';
 
 @Component({
-    selector: 'movies',
+    selector: 'app-movie-list',
     templateUrl: './movie-list.component.html'
 })
-export class MovieListComponent{
-    pageTitle: string = 'Upcoming';
-    listFilter: string = 'list';
-    movies: any[] = [
+export class MovieListComponent {
+    pageTitle = 'Upcoming';
+    listFilter = 'list';
+    movies: IMovie[] = [
         {
-            "releaseDate": "March 19, 2016",
-            "description": "Leaf rake with 48-inch wooden handle.",
-            "price": 19.95,
-            "starRating": 3.2,
-            "imageUrl": "http://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png"
+            'release_date': 'March 19, 2016',
+            'title': 'Leaf rake with 48-inch wooden handle.',
+            'popularity': 3.2,
+            'poster_path': 'http://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png',
+            'vote_count' : 0,
+            'id': 0,
+            'video': false,
+            'original_language': '',
+            'original_title': '',
+            'genre_ids': [],
+            'backdrop_path': '',
+            'adult': false,
+            'overview': '',
+            'vote_average': 0,
         },
         {
-            "releaseDate": "March 18, 2016",
-            "description": "15 gallon capacity rolling garden cart",
-            "price": 32.99,
-            "starRating": 4.2,
-            "imageUrl": "http://openclipart.org/image/300px/svg_to_png/58471/garden_cart.png"
-        } 
+            'release_date': 'March 18, 2016',
+            'title': '15 gallon capacity rolling garden cart',
+            'popularity': 4.2,
+            'poster_path': 'http://openclipart.org/image/300px/svg_to_png/58471/garden_cart.png',
+            'vote_count' : 0,
+            'id': 0,
+            'video': false,
+            'original_language': '',
+            'original_title': '',
+            'genre_ids': [],
+            'backdrop_path': '',
+            'adult': false,
+            'overview': '',
+            'vote_average': 0,
+        }
     ];
 }
