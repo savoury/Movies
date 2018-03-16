@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { IMovie } from './movie';
 
 @Component({
     selector: 'app-movie-list',
     templateUrl: './movie-list.component.html'
 })
-export class MovieListComponent {
+export class MovieListComponent implements OnInit {
+
     pageTitle = 'Upcoming';
     listFilter = 'list';
     movies: IMovie[] = [
@@ -42,4 +43,8 @@ export class MovieListComponent {
             'vote_average': 0,
         }
     ];
+
+    ngOnInit(): void {
+     console.log('onInit');
+    }
 }
