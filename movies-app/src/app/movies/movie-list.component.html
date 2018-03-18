@@ -1,18 +1,11 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-  <title></title>
-</head>
-
-<body>
   <div class="album py-5 bg-light">
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
           <form class="form-inline">
             <label class="sr-only">Name</label>
-            <input class="form-control mb-2 mr-sm-2" name='value' placeholder="Filter" type="text">
+            <input class="form-control mb-2 mr-sm-2" [(ngModel)]="listFilter" name='value' placeholder="Filter" type="text">
           </form>
         </div>
         <div class="col-sm-12">
@@ -25,7 +18,7 @@
                 style="height: 225px; width: 100%; display: block;">
               <div class="card-body">
                 <p class="card-text">{{movie.title | convertToSpaces:'-'}} {{movie.release_date}} {{movie.vote_average}}</p>
-                <app-star></app-star>
+                <app-star [rating]='movie.vote_average' (ratingClicked)='onRatingClicked($event)' ></app-star>
                 <a class="btn btn-primary" href="#">See details</a>
               </div>
             </div>
@@ -34,6 +27,4 @@
       </div>
     </div>
   </div>
-</body>
 
-</html>
