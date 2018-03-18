@@ -8,6 +8,7 @@ import { IMovie } from './movie';
 export class MovieListComponent implements OnInit {
     _listFilter: string;
     pageTitle = 'Upcoming';
+    
 
     constructor() {
         this.filteredMovies = this.movies;
@@ -38,7 +39,7 @@ export class MovieListComponent implements OnInit {
             'backdrop_path': '',
             'adult': false,
             'overview': '',
-            'vote_average': 0,
+            'vote_average': 2.5,
         },
         {
             'release_date': 'March 18, 2016',
@@ -54,7 +55,7 @@ export class MovieListComponent implements OnInit {
             'backdrop_path': '',
             'adult': false,
             'overview': '',
-            'vote_average': 0,
+            'vote_average': 6.5,
         }
     ];
 
@@ -66,5 +67,8 @@ export class MovieListComponent implements OnInit {
         filterBy = filterBy.toLocaleLowerCase();
         return this.movies.filter((e: IMovie) =>
             e.title.toLocaleLowerCase().indexOf(filterBy) !== -1);
+    }
+    onRatingClicked(message: string): void {
+        console.log(message);
     }
 }

@@ -5,13 +5,15 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { MovieListComponent } from './movies/movie-list.component';
 import { ConvertSpecialCharToSpace } from './shared/convertSpecialCharToSpace.pipe';
+import { StarComponent } from './shared/star.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MovieListComponent,
-    ConvertSpecialCharToSpace
+    ConvertSpecialCharToSpace,
+    StarComponent
   ],
   imports: [
     BrowserModule,
