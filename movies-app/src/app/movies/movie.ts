@@ -14,3 +14,9 @@ export interface IMovie {
     overview: string;
     release_date: string;
 }
+
+export interface IData {
+    results: IMovie[];
+    page: number;
+    total_pages: number;
+}

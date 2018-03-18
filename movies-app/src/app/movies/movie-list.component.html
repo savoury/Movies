@@ -12,8 +12,9 @@
       </div>
       <div *ngFor='let movie of filteredMovies'>
         <div class="card mb-4 box-shadow">
-          <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]"
-            style="height: 225px; width: 100%; display: block;" [src]='movie.poster_path' data-holder-rendered="true">
+          <img class="card-img-top" alt="Thumbnail [100%x225]"
+            style="height: 225px; width: 100%; display: block;" [src]='https://image.tmdb.org/t/p/w500/{{movie.poster_path}}' data-holder-rendered="true">
+            
           <div class="card-body">
             <p class="card-text">{{movie.title | convertToSpaces:'-'}} {{movie.release_date}} {{movie.vote_average}}</p>
             <app-star [rating]='movie.vote_average' (ratingClicked)='onRatingClicked($event)'>

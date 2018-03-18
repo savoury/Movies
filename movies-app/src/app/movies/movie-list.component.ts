@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IMovie } from './movie';
+import { IMovie, IData } from './movie';
 import { MovieService } from './movie.service';
 
 @Component({
@@ -8,9 +8,9 @@ import { MovieService } from './movie.service';
 })
 export class MovieListComponent implements OnInit {
     _listFilter: string;
-     pageTitle = 'Upcoming';
-     filteredMovies: IMovie[];
-     movies: IMovie[];
+    pageTitle = 'Upcoming';
+    filteredMovies: IMovie[];
+    result: IData;
 
     constructor(private _movieService: MovieService) {
     }
@@ -20,20 +20,22 @@ export class MovieListComponent implements OnInit {
     }
     set listFilter(value: string) {
         this._listFilter = value;
-        this.filteredMovies = this._listFilter ? this.filtered(this.listFilter) : this.movies;
-    }    
+        this.filteredMovies = this._listFilter ? this.filtered(this.listFilter) : this.result.results;
+    }
 
     filtered(filterBy: string): IMovie[] {
         filterBy = filterBy.toLocaleLowerCase();
-        return this.movies.filter((e: IMovie) =>
+        return this.result.results.filter((e: IMovie) =>
             e.title.toLocaleLowerCase().indexOf(filterBy) !== -1);
     }
 
     ngOnInit(): void {
-       this.movies = this._movieService.getUpcomingMovies();
-       this.filteredMovies = this.movies;
+        this._movieService.getUpcomingMovies(1).subscribe(e => {
+            this.result = e;
+            this.filteredMovies = this.result.results
+        });
     }
-   
+
     onRatingClicked(message: string): void {
         console.log(message);
     }

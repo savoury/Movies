@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { MovieListComponent } from './movies/movie-list.component';
 import { ConvertSpecialCharToSpace } from './shared/convertSpecialCharToSpace.pipe';
 import { StarComponent } from './shared/star.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { StarComponent } from './shared/star.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
