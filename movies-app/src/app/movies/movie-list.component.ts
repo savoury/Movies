@@ -8,6 +8,7 @@ import { MovieService } from "./movie.service";
 })
 export class MovieListComponent implements OnInit {
   _listFilter: string;
+  _errorMessage: string;
   pageTitle = "Upcoming";
   filteredMovies: IMovie[];
   result: IData;
@@ -35,8 +36,7 @@ export class MovieListComponent implements OnInit {
     this._movieService.getUpcomingMovies(1).subscribe(e => {
       this.result = e;
       this.filteredMovies = this.result.results;
-      console.log(this.filteredMovies);
-    });
+     }, err => this._errorMessage = <any>err);
   }
 
   onRatingClicked(message: string): void {

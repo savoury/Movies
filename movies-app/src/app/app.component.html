@@ -1,16 +1,20 @@
-
-<div>
-  <app-movie-list></app-movie-list>
-</div>
-<ul>
-  <!-- <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li> -->
-</ul>
-
+<nav id="navbar-example2" class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <ul class="nav nav-pills">
+      <li class="nav-item dropdown" dropdown>
+          <a class="nav-link dropdown-toggle" dropdownToggle role="button" aria-haspopup="true" aria-expanded="false">Movies</a>
+          <div class="dropdown-menu" *dropdownMenu>
+            <a class="dropdown-item" [routerLink]="['/movies']">Upcoming</a>
+            <!-- <div role="separator" class="dropdown-divider"></div> -->
+          </div>
+        </li>
+    <!-- <li class="nav-item">
+      <a class="nav-link" href="#fat">@fat</a>
+    </li> -->
+    <!-- <li class="nav-item">
+      <a class="nav-link" href="#mdo">@mdo</a>
+    </li> -->
+   
+  </ul>
+</nav>
+<router-outlet></router-outlet>
