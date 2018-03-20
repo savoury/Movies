@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { IMovie, IData } from "./movie";
+import { IMovie, IData, IDetail } from "./movie";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
 import 'rxjs/add/operator/catch';
@@ -12,10 +12,16 @@ export class MovieService {
     constructor(private _http: HttpClient) {
     }
 
-    getUpcomingMovies(page: number): Observable<IData> {
+    getUpcoming(page: number): Observable<IData> {
         return this._http.get<IData>(`${this._url}upcoming?api_key=${this._key}&language=en-US&page=${page}`)
-        // .do(e => console.log(JSON.stringify(e)))
-        .catch(this.handleError);
+            // .do(e => console.log(JSON.stringify(e)))
+            .catch(this.handleError);
+    }
+
+    getDetails(movieId: number): Observable<IDetail> {
+        return this._http.get<IDetail>(`${this._url}${movieId}?api_key=${this._key}&language=en-US`)
+            .do(e => console.log(JSON.stringify(e)))
+            .catch(this.handleError);
     }
 
     private handleError(exception: HttpErrorResponse) {

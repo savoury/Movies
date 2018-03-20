@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { IMovie } from '../movie';
+import { IMovie, IDetail, IGenre } from '../movie';
+import { ActivatedRoute } from '@angular/router';
+import { MovieService } from '../movie.service';
+
 
 @Component({
   selector: 'app-movie-detail',
@@ -8,10 +11,24 @@ import { IMovie } from '../movie';
 })
 export class MovieDetailComponent implements OnInit {
   _title: string = "Movie Details"
-  _movie: IMovie;
-  constructor() { }
+  movieDetail: IDetail;
+  errorMessage: string;
+
+  constructor(private _route: ActivatedRoute,
+    private _movieService: MovieService) { }
 
   ngOnInit() {
+    let id = +this._route.snapshot.paramMap.get('id');
+    this._movieService.getDetails(id).subscribe(
+      e => this.movieDetail = e,
+      err => this.errorMessage = <any>err
+    );
+  }
+
+  getGenresFormatted(genres: IGenre[]): string {
+    return genres.map(function (elem) {
+      return elem.name;
+    }).join(", ");
   }
 
 }

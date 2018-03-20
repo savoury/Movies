@@ -33,7 +33,7 @@ export class MovieListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._movieService.getUpcomingMovies(1).subscribe(e => {
+    this._movieService.getUpcoming(1).subscribe(e => {
       this.result = e;
       this.filteredMovies = this.result.results;
      }, err => this._errorMessage = <any>err);

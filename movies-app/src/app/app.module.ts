@@ -10,6 +10,7 @@ import { StarComponent } from './shared/star.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MovieDetailComponent } from './movies/movie-detail/movie-detail.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { MovieCastComponent } from './movies/movie-cast/movie-cast.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     MovieListComponent,
     ConvertSpecialCharToSpace,
     StarComponent,
-    MovieDetailComponent
+    MovieDetailComponent,
+    MovieCastComponent
   ],
   imports: [
     BsDropdownModule.forRoot(),

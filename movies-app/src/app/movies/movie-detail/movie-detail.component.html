@@ -1,3 +1,19 @@
-<p>
-  movie-detail works!
-</p>
+<div class="py-5">
+  <div class="row">
+    <div class="col-md-3 col-sm-3 col-xs-12">
+      <img alt="Thumbnail [100%x225]" class="card-img-top img-fluid" data-holder-rendered="true" src="https://image.tmdb.org/t/p/w300/{{movieDetail.poster_path}}">
+    </div>
+    <div class="col-md-9 col-sm-9 col-xs-12">
+      <div class="card">
+        <div class="card-header">
+          {{movieDetail.release_date}}
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{movieDetail.original_title}}</h5>
+          <p class="card-text">{{getGenresFormatted(movieDetail.genres)}}</p>
+          <p class="card-text">{{movieDetail.overview}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
