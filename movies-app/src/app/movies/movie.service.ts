@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { IMovie, IData, IDetail } from "./movie";
+import { IMovie, IData, IDetail, ICrewsAndCasts } from "./movie";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
 import 'rxjs/add/operator/catch';
@@ -20,6 +20,12 @@ export class MovieService {
 
     getDetails(movieId: number): Observable<IDetail> {
         return this._http.get<IDetail>(`${this._url}${movieId}?api_key=${this._key}&language=en-US`)
+            .do(e => console.log(JSON.stringify(e)))
+            .catch(this.handleError);
+    }
+
+    getCredits(movieId: number): Observable<ICrewsAndCasts> {
+        return this._http.get<IDetail>(`${this._url}${movieId}/credits?api_key=${this._key}&language=en-US`)
             .do(e => console.log(JSON.stringify(e)))
             .catch(this.handleError);
     }

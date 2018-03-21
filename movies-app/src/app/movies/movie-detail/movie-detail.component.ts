@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { IMovie, IDetail, IGenre } from '../movie';
 import { ActivatedRoute } from '@angular/router';
 import { MovieService } from '../movie.service';
-import { forEach } from '@angular/router/src/utils/collection';
 
 
 @Component({
@@ -11,27 +10,29 @@ import { forEach } from '@angular/router/src/utils/collection';
   styleUrls: ['./movie-detail.component.css']
 })
 export class MovieDetailComponent implements OnInit {
-  _title = 'Movie Details';
+  _title: string = "Movie Details"
   movieDetail: IDetail;
+  allDataFetched: boolean = false;
   errorMessage: string;
 
   constructor(private _route: ActivatedRoute,
     private _movieService: MovieService) { }
 
   ngOnInit() {
-    const id = +this._route.snapshot.paramMap.get('id');
+    let id = +this._route.snapshot.paramMap.get('id');
     this._movieService.getDetails(id).subscribe(
-      e => this.movieDetail = e,
+      e => {
+      this.movieDetail = e;
+      this.allDataFetched = true;
+      },
       err => this.errorMessage = <any>err
     );
   }
 
   getGenresFormatted(genres: IGenre[]): string {
-    let res = '';
-    genres.forEach(t => res  += t.name + ', ');
-    console.log(res);
-    return genres.map(elem => {
+    return genres.map(function (elem) {
       return elem.name;
-    }).join(', ');
+    }).join(", ");
   }
+
 }

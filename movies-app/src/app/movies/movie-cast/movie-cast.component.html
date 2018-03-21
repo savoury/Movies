@@ -1,3 +1,5 @@
-<p>
-  movie-cast works!
-</p>
+<div class="col-lg-3 col-md-4 col-xs-6" *ngFor="let cast of casts">
+  <a href="#" class="d-block mb-4 h-100">
+    <img alt="Thumbnail [100%x225]" class="img-fluid" data-holder-rendered="true" src="https://image.tmdb.org/t/p/w400/{{cast.profile_path}}">
+  </a>
+</div>

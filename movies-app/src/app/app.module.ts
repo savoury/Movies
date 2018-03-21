@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MovieDetailComponent } from './movies/movie-detail/movie-detail.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { MovieCastComponent } from './movies/movie-cast/movie-cast.component';
+import { MovieDetailGuardService } from './movies/movie-detail/movie-detail-guard.service';
 
 
 @NgModule({
@@ -29,12 +30,12 @@ import { MovieCastComponent } from './movies/movie-cast/movie-cast.component';
     HttpClientModule,
     RouterModule.forRoot([
       { path: 'movies', component: MovieListComponent},
-      { path: 'movies/:id', component: MovieDetailComponent},
+      { path: 'movies/:id', component: MovieDetailComponent, canActivate: [MovieDetailGuardService]},
       { path: '', redirectTo: 'movies', pathMatch: 'full'},
       { path: '**', redirectTo: 'movies', pathMatch: 'full'}
     ], )
   ],
-  providers: [],
+  providers: [MovieDetailGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
