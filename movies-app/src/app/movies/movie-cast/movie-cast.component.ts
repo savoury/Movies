@@ -10,7 +10,8 @@ import { ICrewsAndCasts, Cast } from '../movie';
 })
 export class MovieCastComponent implements OnInit {
   @Input() id: number;
-  allDataFetched: boolean = false;
+  allDataFetched = false;
+  _title = 'Casting';
   errorMessage: string;
   data: ICrewsAndCasts;
   casts: Cast[];
@@ -19,7 +20,6 @@ export class MovieCastComponent implements OnInit {
     private _movieService: MovieService) { }
 
   ngOnInit() {
- 
     this._movieService.getCredits(this.id).subscribe(
       e => {
       this.data = e;

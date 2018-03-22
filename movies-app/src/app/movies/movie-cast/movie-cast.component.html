@@ -1,5 +1,13 @@
-<div class="col-lg-3 col-md-4 col-xs-6" *ngFor="let cast of casts">
-  <a href="#" class="d-block mb-4 h-100">
-    <img alt="Thumbnail [100%x225]" class="img-fluid" data-holder-rendered="true" src="https://image.tmdb.org/t/p/w400/{{cast.profile_path}}">
-  </a>
+<div class="row py-3">
+  <h3>
+    {{_title}}
+  </h3>
+
+</div>
+<div class="row py-2">
+  <div class="col-md-1 col-sm-2 col-xs-3" *ngFor="let cast of casts">
+    <a href="#" class="d-block mb-1">
+      <img alt="Thumbnail [100%x225]" class="img-fluid img-thumbnail" data-holder-rendered="true" src="https://image.tmdb.org/t/p/w400/{{cast.profile_path}}">
+    </a>
+  </div>
 </div>
