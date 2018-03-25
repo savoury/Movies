@@ -10,16 +10,16 @@ import { MovieService } from '../movie.service';
   styleUrls: ['./movie-detail.component.css']
 })
 export class MovieDetailComponent implements OnInit {
-  _title: string = "Movie Details"
+  _title = 'Movie Details';
   movieDetail: IDetail;
-  allDataFetched: boolean = false;
+  allDataFetched = false;
   errorMessage: string;
 
   constructor(private _route: ActivatedRoute,
     private _movieService: MovieService) { }
 
   ngOnInit() {
-    let id = +this._route.snapshot.paramMap.get('id');
+    const id = +this._route.snapshot.paramMap.get('id');
     this._movieService.getDetails(id).subscribe(
       e => {
       this.movieDetail = e;
@@ -32,7 +32,7 @@ export class MovieDetailComponent implements OnInit {
   getGenresFormatted(genres: IGenre[]): string {
     return genres.map(function (elem) {
       return elem.name;
-    }).join(", ");
+    }).join(', ');
   }
 
 }

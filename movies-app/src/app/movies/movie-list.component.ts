@@ -1,15 +1,15 @@
-import { Component, OnInit } from "@angular/core";
-import { IMovie, IData } from "./movie";
-import { MovieService } from "./movie.service";
+import { Component, OnInit } from '@angular/core';
+import { IMovie, IData } from './movie';
+import { MovieService } from './movie.service';
 
 @Component({
-  selector: "app-movie-list",
-  templateUrl: "./movie-list.component.html"
+  selector: 'app-movie-list',
+  templateUrl: './movie-list.component.html'
 })
 export class MovieListComponent implements OnInit {
   _listFilter: string;
   _errorMessage: string;
-  pageTitle = "Upcoming";
+  pageTitle = 'Upcoming';
   filteredMovies: IMovie[];
   result: IData;
 

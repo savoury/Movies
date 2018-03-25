@@ -1,14 +1,14 @@
-import { Injectable } from "@angular/core";
-import { IMovie, IData, IDetail, ICrewsAndCasts } from "./movie";
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
-import { Observable } from "rxjs/Observable";
+import { Injectable } from '@angular/core';
+import { IMovie, IData, IDetail, ICrewsAndCasts } from './movie';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 
 @Injectable()
 export class MovieService {
-    _key: string = "f3e9f7d1677c7aa63c9ab526381eeceb";
-    _url: string = "https://api.themoviedb.org/3/movie/";
+    _key = 'f3e9f7d1677c7aa63c9ab526381eeceb';
+    _url = 'https://api.themoviedb.org/3/movie/';
     constructor(private _http: HttpClient) {
     }
 
@@ -20,13 +20,19 @@ export class MovieService {
 
     getDetails(movieId: number): Observable<IDetail> {
         return this._http.get<IDetail>(`${this._url}${movieId}?api_key=${this._key}&language=en-US`)
-            .do(e => console.log(JSON.stringify(e)))
+            // .do(e => console.log(JSON.stringify(e)))
             .catch(this.handleError);
     }
 
     getCredits(movieId: number): Observable<ICrewsAndCasts> {
         return this._http.get<IDetail>(`${this._url}${movieId}/credits?api_key=${this._key}&language=en-US`)
-            .do(e => console.log(JSON.stringify(e)))
+            // .do(e => console.log(JSON.stringify(e)))
+            .catch(this.handleError);
+    }
+
+    getTopRated(page: number): Observable<IData> {
+        return this._http.get<IData>(`${this._url}top_rated?api_key=${this._key}&language=en-US&page=${page}`)
+            // .do(e => console.log(JSON.stringify(e)))
             .catch(this.handleError);
     }
 
@@ -34,4 +40,4 @@ export class MovieService {
         console.log(exception);
         return Observable.throw(exception);
     }
-} 
+}

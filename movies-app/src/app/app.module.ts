@@ -12,6 +12,7 @@ import { MovieDetailComponent } from './movies/movie-detail/movie-detail.compone
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { MovieCastComponent } from './movies/movie-cast/movie-cast.component';
 import { MovieDetailGuardService } from './movies/movie-detail/movie-detail-guard.service';
+import { MovieTopRatedComponent } from './movies/movie-top-rated/movie-top-rated.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { MovieDetailGuardService } from './movies/movie-detail/movie-detail-guar
     ConvertSpecialCharToSpace,
     StarComponent,
     MovieDetailComponent,
-    MovieCastComponent
+    MovieCastComponent,
+    MovieTopRatedComponent
   ],
   imports: [
     BsDropdownModule.forRoot(),
@@ -30,6 +32,7 @@ import { MovieDetailGuardService } from './movies/movie-detail/movie-detail-guar
     HttpClientModule,
     RouterModule.forRoot([
       { path: 'movies', component: MovieListComponent},
+      { path: 'moviesTR', component: MovieTopRatedComponent},
       { path: 'movies/:id', component: MovieDetailComponent, canActivate: [MovieDetailGuardService]},
       { path: '', redirectTo: 'movies', pathMatch: 'full'},
       { path: '**', redirectTo: 'movies', pathMatch: 'full'}
